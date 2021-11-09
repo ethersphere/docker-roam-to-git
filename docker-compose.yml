@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  roam-to-git:
+    image: roam-to-git:latest
+    build: .
+    volumes:
+      - ${REPO_VOLUME}:/tmp/roam-repo
+    restart: "no"
+    environment:
+      ROAMRESEARCH_USER: ${ROAMRESEARCH_USER}
+      ROAMRESEARCH_PASSWORD: ${ROAMRESEARCH_PASSWORD}
+      ROAMRESEARCH_DATABASE: ${ROAMRESEARCH_DATABASE}
+      TZ: Europe/Zurich
+
+volumes:
+  roam-repo: {}
